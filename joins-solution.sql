@@ -30,3 +30,7 @@ SELECT count(*) AS "number_of_customers" FROM "customers";
 --7 How many products do we carry?
 SELECT count(*) AS "number_of_products" FROM "products";
 
+--8 What is the total available on-hand quantity of diet pepsi?
+SELECT sum("warehouse_product".on_hand) AS "total_on_hand_diet_pepsi"  FROM "warehouse_product"
+JOIN "products" ON "products".id = "warehouse_product".product_id
+WHERE "products".description = 'diet pepsi';
